@@ -73,6 +73,11 @@ export const Footer: React.FC = () => {
             <span>PEC Category C-A (No-Limit)</span>
           </div>
         </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-stone-800 pt-6 text-center text-xs text-stone-400 sm:flex-row sm:text-left">
+          <p>&copy; {new Date().getFullYear()} Rehman Construction (Pvt) Ltd. All rights reserved.</p>
+          <p>Developed by <span className="font-semibold text-amber-400">Ahmed Mandokhail</span></p>
+        </div>
       </div>
     </footer>
   );
