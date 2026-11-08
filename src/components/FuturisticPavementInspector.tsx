@@ -1,17 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Layers,
-  Cpu,
-  Shield,
-  Activity,
-  Gauge,
-  Sliders,
-  CheckCircle2,
-  ChevronRight,
-  Maximize2,
-  Zap,
-  Info
-} from 'lucide-react';
+import { Layers, Cpu, Shield, Activity, CheckCircle2, ChevronRight } from 'lucide-react';
 
 interface LayerSpec {
   id: string;
@@ -117,11 +105,11 @@ export const FuturisticPavementInspector: React.FC = () => {
         </div>
 
         {/* Interactive Visualizer Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
           
           {/* Left: Interactive 5-Layer Cross-Section Slice Diagram */}
-          <div className="lg:col-span-6 rounded-2xl border border-stone-800 bg-stone-950 p-6 sm:p-8 shadow-2xl relative">
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-stone-800">
+          <div className="xl:col-span-6 rounded-2xl border border-stone-800 bg-stone-950 p-6 sm:p-8 shadow-2xl relative">
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-stone-800">
               <span className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
                 <Layers className="h-4 w-4" />
                 <span>Interactive Roadbed Stratum</span>
@@ -130,12 +118,12 @@ export const FuturisticPavementInspector: React.FC = () => {
             </div>
 
             {/* Vehicle Simulator on Top */}
-            <div className="relative mb-3 flex items-center justify-between px-3 py-2 bg-stone-900/60 rounded-xl border border-stone-800/80">
+            <div className="relative mb-3 flex flex-wrap items-center justify-between gap-3 px-3 py-2 bg-stone-900/60 rounded-xl border border-stone-800/80">
               <div className="flex items-center gap-2">
                 <Activity className="h-4 w-4 text-emerald-400 animate-pulse" />
                 <span className="text-xs font-mono text-stone-300">Axle Stress Load:</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex min-w-0 flex-1 items-center gap-3">
                 <input
                   type="range"
                   min="40"
@@ -163,7 +151,7 @@ export const FuturisticPavementInspector: React.FC = () => {
                     }`}
                   >
                     {/* Layer indicator bar */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
                       <div className="flex items-center gap-3">
                         <span className="flex h-6 w-6 items-center justify-center rounded bg-stone-950 font-mono text-xs font-bold text-amber-400 border border-stone-800">
                           0{index + 1}
@@ -178,7 +166,7 @@ export const FuturisticPavementInspector: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="text-right">
+                      <div className="shrink-0 text-right">
                         <span className="font-mono text-xs font-extrabold text-amber-400 block">
                           {layer.thickness}
                         </span>
@@ -188,7 +176,7 @@ export const FuturisticPavementInspector: React.FC = () => {
 
                     {/* Active Layer Visual Ping */}
                     {isSelected && (
-                      <div className="mt-2 pt-2 border-t border-stone-800 flex items-center justify-between text-[11px] text-amber-400 font-mono">
+                      <div className="mt-2 pt-2 border-t border-stone-800 flex flex-wrap items-center justify-between gap-3 text-[11px] text-amber-400 font-mono">
                         <span>Selected for Structural Telemetry</span>
                         <ChevronRight className="h-3 w-3" />
                       </div>
@@ -198,16 +186,16 @@ export const FuturisticPavementInspector: React.FC = () => {
               })}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-stone-800/80 flex items-center justify-between text-[11px] text-stone-400 font-mono">
+            <div className="mt-4 pt-3 border-t border-stone-800/80 flex flex-wrap items-center justify-between gap-3 text-[11px] text-stone-400 font-mono">
               <span>Subterranean Geo-Grid Active</span>
               <span className="text-emerald-400">Zero Water Permeation</span>
             </div>
           </div>
 
           {/* Right: Detailed Engineering Telemetry Card for Selected Layer */}
-          <div className="lg:col-span-6 rounded-2xl border border-stone-800 bg-stone-950 p-6 sm:p-8 shadow-2xl flex flex-col justify-between">
+          <div className="xl:col-span-6 rounded-2xl border border-stone-800 bg-stone-950 p-6 sm:p-8 shadow-2xl flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-stone-800">
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-6 border-b border-stone-800">
                 <div className="flex items-center gap-2">
                   <Shield className="h-5 w-5 text-amber-400" />
                   <span className="text-xs font-bold uppercase tracking-wider text-stone-300">
@@ -259,7 +247,7 @@ export const FuturisticPavementInspector: React.FC = () => {
 
                 {/* Simulated Strain & Bearing Stress Output */}
                 <div className="p-4 rounded-xl border border-stone-800 bg-stone-900/40">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
                     <span className="text-xs font-mono text-stone-400">Axle Stress Absorption:</span>
                     <span className="font-mono text-xs font-bold text-emerald-400">
                       {Math.min(99.8, Number((axleLoadSim * 0.72).toFixed(1)))}% Dampened
@@ -276,7 +264,7 @@ export const FuturisticPavementInspector: React.FC = () => {
             </div>
 
             {/* Verification Badge */}
-            <div className="pt-4 border-t border-stone-800 flex items-center justify-between text-xs text-stone-400">
+            <div className="pt-4 border-t border-stone-800 flex flex-wrap items-center justify-between gap-3 text-xs text-stone-400">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-emerald-400" />
                 <span>Lab-Tested Aggregate Quality</span>

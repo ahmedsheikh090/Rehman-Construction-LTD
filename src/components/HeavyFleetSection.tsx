@@ -1,5 +1,5 @@
 import React from 'react';
-import { Truck, Wrench, Shield, CheckCircle2, Award, Building, HardHat } from 'lucide-react';
+import { Truck } from 'lucide-react';
 
 export const HeavyFleetSection: React.FC = () => {
   return (
@@ -7,13 +7,13 @@ export const HeavyFleetSection: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6 mb-12">
           <div>
             <div className="flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-400 mb-2">
               <Truck className="h-4 w-4" />
               <span>Heavy Mechanization & Vertical Superstructures</span>
             </div>
-            <h2 className="rocky-title text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
+            <h2 className="rocky-title text-3xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight">
               HEAVY ROAD FLEET & BLUE AREA STRUCTURES
             </h2>
             <p className="mt-3 text-base sm:text-lg text-stone-400 max-w-2xl">
@@ -111,7 +111,7 @@ export const HeavyFleetSection: React.FC = () => {
             </div>
 
             {/* Engineering Workforce Card (User's Worker Photo) */}
-            <div className="rounded-2xl border border-stone-800 bg-stone-950 p-6 flex items-center gap-6 shadow-xl">
+            <div className="rounded-2xl border border-stone-800 bg-stone-950 p-4 sm:p-6 flex flex-col min-[400px]:flex-row items-start gap-4 sm:gap-6 shadow-xl">
               <div className="relative h-24 w-24 shrink-0 rounded-xl overflow-hidden border border-stone-800">
                 <img
                   src="/assets/aistudio/workers_f6809da1.jfif"

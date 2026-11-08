@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-stone-200/80 bg-stone-50/95 backdrop-blur-md transition-colors duration-200 dark:border-stone-800/80 dark:bg-stone-950/95">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-8 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-20 max-w-7xl flex-wrap items-center justify-between gap-x-2 gap-y-3 py-3 px-4 sm:px-6 lg:px-8">
         
         {/* Zone 1: Single text element wordmark */}
         <a
@@ -51,27 +51,27 @@ export const Navbar: React.FC<NavbarProps> = ({
             e.preventDefault();
             handleNavClick('overview');
           }}
-          className="group flex items-center gap-3 whitespace-nowrap shrink-0 text-decoration-none"
+          className="group flex items-center gap-2 sm:gap-3 min-w-0 flex-1 lg:flex-none text-decoration-none"
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-amber-500 font-bold text-stone-950 shadow-md transition-transform duration-200 group-hover:scale-105 dark:bg-amber-400">
+          <div className="flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-lg bg-amber-500 font-bold text-stone-950 shadow-md transition-transform duration-200 group-hover:scale-105 dark:bg-amber-400">
             <HardHat className="h-6 w-6 stroke-[2.2]" />
           </div>
           <div className="flex flex-col">
-            <span className="rocky-title text-2xl font-black tracking-tight text-stone-900 dark:text-stone-100 sm:text-3xl">
+            <span className="rocky-title text-sm min-[400px]:text-lg leading-tight md:whitespace-nowrap font-black tracking-tight text-stone-900 dark:text-stone-100 sm:text-2xl md:text-3xl">
               REHMAN <span className="text-amber-600 dark:text-amber-400">CONSTRUCTION</span>
             </span>
           </div>
         </a>
 
         {/* Zone 2: 4-5 clean single-line nav links */}
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="order-3 hidden w-full basis-full items-center gap-5 overflow-x-auto pb-1 lg:flex xl:justify-between">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`text-sm font-semibold tracking-wide uppercase transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                className={`text-xs font-semibold tracking-wide uppercase transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                   isActive
                     ? 'text-amber-600 dark:text-amber-400 border-b-2 border-amber-600 dark:border-amber-400 pb-1'
                     : 'text-stone-600 hover:text-stone-950 dark:text-stone-400 dark:hover:text-stone-100'
@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Zone 3: 1 primary action + theme toggle */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           {/* Light / Dark Mode Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
@@ -98,18 +98,20 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* AI Consultant Button */}
           <button
             onClick={onOpenAi}
-            className="flex items-center gap-2 rounded-lg bg-amber-500 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-stone-950 shadow-sm transition-all hover:bg-amber-400 hover:shadow-md dark:bg-amber-400 dark:hover:bg-amber-300 whitespace-nowrap shrink-0 cursor-pointer"
+            className="flex items-center gap-2 rounded-lg bg-amber-500 px-2 sm:px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-stone-950 shadow-sm transition-all hover:bg-amber-400 hover:shadow-md dark:bg-amber-400 dark:hover:bg-amber-300 whitespace-nowrap shrink-0 cursor-pointer"
           >
             <MessageSquareCode className="h-4 w-4" />
             <span className="hidden sm:inline">AI Engineering Desk</span>
-            <span className="sm:hidden">AI Desk</span>
+            <span className="hidden min-[400px]:inline sm:hidden">AI Desk</span>
           </button>
 
           {/* Mobile hamburger menu */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-stone-200 text-stone-700 lg:hidden dark:border-stone-800 dark:text-stone-300"
-            aria-label="Open navigation menu"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -118,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="border-b border-stone-200 bg-stone-50 px-4 py-4 lg:hidden dark:border-stone-800 dark:bg-stone-900">
+        <div id="mobile-navigation" className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-b border-stone-200 bg-stone-50 px-4 py-4 lg:hidden dark:border-stone-800 dark:bg-stone-900">
           <nav className="flex flex-col gap-3">
             {navItems.map((item) => (
               <button

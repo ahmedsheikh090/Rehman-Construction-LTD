@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TRANSFORMATIONS_DATA } from '../data/transformationsData';
-import { SlidersHorizontal, ArrowLeftRight, CheckCircle2, AlertTriangle, Sparkles } from 'lucide-react';
+import { SlidersHorizontal, ArrowLeftRight, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 export const BeforeAfterSection: React.FC = () => {
   const [selectedTransId, setSelectedTransId] = useState<string>(TRANSFORMATIONS_DATA[0].id);
@@ -35,13 +35,13 @@ export const BeforeAfterSection: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6 mb-12">
           <div>
             <div className="flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-400 mb-2">
               <ArrowLeftRight className="h-4 w-4" />
               <span>Visible National Impact · Before & After</span>
             </div>
-            <h2 className="rocky-title text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
+            <h2 className="rocky-title text-3xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight">
               ROADS & ARTERIALS TRANSFORMED
             </h2>
             <p className="mt-3 text-base sm:text-lg text-stone-400 max-w-2xl">
@@ -88,7 +88,7 @@ export const BeforeAfterSection: React.FC = () => {
           {/* Left Column: Interactive Before/After Split Slider */}
           <div className="lg:col-span-8 flex flex-col">
             <div
-              className="relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-950 cursor-ew-resize select-none shadow-2xl"
+              className="relative aspect-16/10 w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-950 cursor-ew-resize touch-pan-y select-none shadow-2xl"
               onMouseDown={() => setIsDragging(true)}
               onMouseUp={() => setIsDragging(false)}
               onMouseLeave={() => setIsDragging(false)}

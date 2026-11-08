@@ -1,18 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Calculator,
-  Truck,
-  HardHat,
-  Gauge,
-  Layers,
-  CheckCircle2,
-  Calendar,
-  Fuel,
-  ShieldCheck,
-  ChevronRight,
-  TrendingUp,
-  Cpu
-} from 'lucide-react';
+import { Calculator, Truck, CheckCircle2, Calendar, ChevronRight, Cpu } from 'lucide-react';
 
 interface ProjectTemplate {
   id: string;
@@ -141,10 +128,10 @@ export const FleetEstimatorSection: React.FC = () => {
         </div>
 
         {/* Estimator Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Scope Configuration */}
-          <div className="lg:col-span-5 rounded-2xl border border-stone-800 bg-stone-900/90 p-6 sm:p-8 backdrop-blur-md shadow-2xl">
+          <div className="xl:col-span-5 rounded-2xl border border-stone-800 bg-stone-900/90 p-6 sm:p-8 backdrop-blur-md shadow-2xl">
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-stone-800">
               <span className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
                 <Calculator className="h-4 w-4" />
@@ -221,7 +208,7 @@ export const FleetEstimatorSection: React.FC = () => {
           </div>
 
           {/* Right Column: Fleet Allocation & Live Calculation Breakdown */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="xl:col-span-7 flex flex-col gap-6">
             
             {/* Quick Metric Ribbon */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -272,7 +259,7 @@ export const FleetEstimatorSection: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {/* 1. Heavy Excavators */}
-                <div className="flex items-center justify-between p-3 rounded-xl border border-stone-800 bg-stone-950">
+                <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl border border-stone-800 bg-stone-950">
                   <div>
                     <span className="text-xs font-bold text-stone-200 block">Heavy Track Excavators</span>
                     <span className="text-[11px] text-stone-500">Caterpillar 336 / 349 Rock Breakers</span>
@@ -281,7 +268,7 @@ export const FleetEstimatorSection: React.FC = () => {
                 </div>
 
                 {/* 2. Track Bulldozers */}
-                <div className="flex items-center justify-between p-3 rounded-xl border border-stone-800 bg-stone-950">
+                <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl border border-stone-800 bg-stone-950">
                   <div>
                     <span className="text-xs font-bold text-stone-200 block">Crawler Bulldozers</span>
                     <span className="text-[11px] text-stone-500">Komatsu D85 / CAT D7 Earthmovers</span>
@@ -290,7 +277,7 @@ export const FleetEstimatorSection: React.FC = () => {
                 </div>
 
                 {/* 3. Dump Trucks & Haulers */}
-                <div className="flex items-center justify-between p-3 rounded-xl border border-stone-800 bg-stone-950">
+                <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl border border-stone-800 bg-stone-950">
                   <div>
                     <span className="text-xs font-bold text-stone-200 block">Heavy Dumper Haulers</span>
                     <span className="text-[11px] text-stone-500">30-Ton Multi-Axle Dumpers</span>
@@ -299,7 +286,7 @@ export const FleetEstimatorSection: React.FC = () => {
                 </div>
 
                 {/* 4. Soil & Asphalt Rollers */}
-                <div className="flex items-center justify-between p-3 rounded-xl border border-stone-800 bg-stone-950">
+                <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl border border-stone-800 bg-stone-950">
                   <div>
                     <span className="text-xs font-bold text-stone-200 block">Vibratory Compactor Rollers</span>
                     <span className="text-[11px] text-stone-500">Dynapac CA250 / Hamm Tandem</span>
@@ -309,7 +296,7 @@ export const FleetEstimatorSection: React.FC = () => {
 
                 {/* 5. Asphalt Pavers */}
                 {paversCount > 0 && (
-                  <div className="flex items-center justify-between p-3 rounded-xl border border-stone-800 bg-stone-950">
+                  <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl border border-stone-800 bg-stone-950">
                     <div>
                       <span className="text-xs font-bold text-stone-200 block">Sensor Asphalt Pavers</span>
                       <span className="text-[11px] text-stone-500">Vögele Super 1800 Dual-Width</span>
@@ -319,7 +306,7 @@ export const FleetEstimatorSection: React.FC = () => {
                 )}
 
                 {/* 6. Batching Plants */}
-                <div className="flex items-center justify-between p-3 rounded-xl border border-stone-800 bg-stone-950">
+                <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl border border-stone-800 bg-stone-950">
                   <div>
                     <span className="text-xs font-bold text-stone-200 block">Concrete & Asphalt Plants</span>
                     <span className="text-[11px] text-stone-500">Marini 240 TPH & 60m³/h Concrete</span>
@@ -337,7 +324,7 @@ export const FleetEstimatorSection: React.FC = () => {
 
                 <a
                   href="#headquarters"
-                  className="rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 px-5 py-2.5 text-xs font-black uppercase tracking-wider shadow-lg transition-colors flex items-center gap-2 whitespace-nowrap cursor-pointer"
+                  className="rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 px-3 sm:px-5 py-2.5 text-xs font-black uppercase tracking-wider shadow-lg transition-colors flex items-center gap-2 whitespace-normal sm:whitespace-nowrap cursor-pointer"
                 >
                   <span>Connect with F-10 Office</span>
                   <ChevronRight className="h-4 w-4" />

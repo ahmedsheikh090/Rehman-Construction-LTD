@@ -1,3 +1,7 @@
+import localImage0 from '../assets/images/cpec_balochistan_n50_1794113940856.jpg';
+import localImage1 from '../assets/images/d_chowk_islamabad_underpass_1794113941201.jpg';
+import localImage2 from '../assets/images/canal_road_lahore_1794113941923.jpg';
+import localImage3 from '../assets/images/project_gaddafi_rain_tank_1794112648430.jpg';
 import { PanoramicViewItem } from '../types';
 
 export const PANORAMIC_DATA: PanoramicViewItem[] = [
@@ -5,7 +9,7 @@ export const PANORAMIC_DATA: PanoramicViewItem[] = [
     id: 'pan-cpec-n50',
     title: 'CPEC Western Route N-50 Mountain Corridor',
     location: 'Zhob & Qila Saifullah Pass, Balochistan',
-    image: '/src/assets/images/cpec_balochistan_n50_1794113940856.jpg',
+    image: localImage0,
     description: '360° panoramic survey of the CPEC Western Route carved through the barren rocky mountains of northern Balochistan with heavy stone cut stabilization.',
     hotspots: [
       { pitch: 42, yaw: 22, label: 'Mountain Rock Cut Slope', detail: 'Stabilized sheer rock face preventing stonefall onto commercial freight lanes.' },
@@ -17,7 +21,7 @@ export const PANORAMIC_DATA: PanoramicViewItem[] = [
     id: 'pan-dchowk',
     title: 'D-Chowk Grade-Separated Underpass & Boulevard',
     location: 'Jinnah Avenue / Constitution Avenue, Islamabad',
-    image: '/src/assets/images/d_chowk_islamabad_underpass_1794113941201.jpg',
+    image: localImage1,
     description: '360° capital view of the signal-free D-Chowk vehicular underpass beneath Jinnah Avenue with sweeping views of the Margalla Hills.',
     hotspots: [
       { pitch: 35, yaw: 18, label: 'Margalla Foothills Backdrop', detail: 'Panoramic scenic alignment designed under strict CDA capital environmental codes.' },
@@ -29,7 +33,7 @@ export const PANORAMIC_DATA: PanoramicViewItem[] = [
     id: 'pan-canal-road',
     title: 'Canal Bank Road Expressway & Embankments',
     location: 'Canal Bank Road, Lahore, Punjab',
-    image: '/src/assets/images/canal_road_lahore_1794113941923.jpg',
+    image: localImage2,
     description: '360° view of Lahore’s bustling divided 6-lane Canal Bank Road alongside reinforced concrete-lined waterways and lush green tree canopies.',
     hotspots: [
       { pitch: 45, yaw: 25, label: 'Reinforced Concrete Lining', detail: 'Cast-in-situ revetment eliminating soil erosion and canal seepage.' },
@@ -53,7 +57,7 @@ export const PANORAMIC_DATA: PanoramicViewItem[] = [
     id: 'pan-gaddafi-tank',
     title: 'Gaddafi Stadium 4-Million Gallon Subterranean Reservoir',
     location: 'Gaddafi Stadium, Lahore',
-    image: '/src/assets/images/project_gaddafi_rain_tank_1794112648430.jpg',
+    image: localImage3,
     description: '360° subterranean view inside the monolithic 4-million gallon rainwater retention facility built for the Pakistan Cricket Board.',
     hotspots: [
       { pitch: 35, yaw: 38, label: '84 Concrete Monolith Pillars', detail: 'Heavy load-bearing columns supporting the stadium outfield and spectator concourses.' },

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PANORAMIC_DATA } from '../data/panoramicData';
-import { Eye, RotateCw, Compass, ZoomIn, ZoomOut, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Eye, RotateCw, Compass, ZoomIn, ZoomOut, ShieldCheck } from 'lucide-react';
 
 export const PanoramicViewerSection: React.FC = () => {
   const [selectedSiteId, setSelectedSiteId] = useState<string>(PANORAMIC_DATA[0].id);
@@ -24,13 +24,14 @@ export const PanoramicViewerSection: React.FC = () => {
     return () => clearInterval(interval);
   }, [autoRotate, isDragging]);
 
-  const handleMouseDown = (e: React.MouseEvent) => {
+  const handleMouseDown = (e: React.PointerEvent) => {
+    e.currentTarget.setPointerCapture(e.pointerId);
     setIsDragging(true);
     setDragStartX(e.clientX);
     setDragStartY(e.clientY);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = (e: React.PointerEvent) => {
     if (!isDragging) return;
     const deltaX = e.clientX - dragStartX;
     const deltaY = e.clientY - dragStartY;
@@ -63,13 +64,13 @@ export const PanoramicViewerSection: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6 mb-10">
           <div>
             <div className="flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-400 mb-2">
               <Eye className="h-4 w-4" />
               <span>Interactive 360° Site Survey · Seamless Drone View</span>
             </div>
-            <h2 className="rocky-title text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
+            <h2 className="rocky-title text-3xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight">
               360° MEGA PROJECT TOURS
             </h2>
             <p className="mt-3 text-base sm:text-lg text-stone-400 max-w-2xl">
@@ -104,14 +105,14 @@ export const PanoramicViewerSection: React.FC = () => {
         </div>
 
         {/* 360° Interactive Canvas Box (Seamless infinite CSS repeat-x) */}
-        <div className="relative aspect-16/9 md:aspect-21/9 w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 shadow-2xl select-none">
+        <div className="relative aspect-16/9 md:aspect-21/9 w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 shadow-2xl touch-pan-y select-none">
           
           <div
             className="w-full h-full relative cursor-grab active:cursor-grabbing overflow-hidden"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
+            onPointerDown={handleMouseDown}
+            onPointerMove={handleMouseMove}
+            onPointerUp={handleMouseUp}
+            onPointerCancel={handleMouseUp}
             style={{
               backgroundImage: `url(${activeSite.image})`,
               backgroundRepeat: 'repeat-x',
@@ -178,7 +179,7 @@ export const PanoramicViewerSection: React.FC = () => {
             </div>
 
             {/* Control Bar Overlay */}
-            <div className="absolute top-4 right-4 flex items-center gap-2">
+            <div className="absolute top-16 sm:top-4 right-4 flex items-center gap-2">
               <button
                 onClick={() => setAutoRotate(!autoRotate)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-colors cursor-pointer border ${
@@ -212,7 +213,7 @@ export const PanoramicViewerSection: React.FC = () => {
 
           {/* Active Hotspot Inspector Card Overlay */}
           {activeHotspot && (
-            <div className="absolute bottom-4 right-4 max-w-sm rounded-xl border border-amber-500/40 bg-stone-950/95 backdrop-blur-md p-4 shadow-2xl animate-in fade-in duration-200 z-20">
+            <div className="absolute bottom-4 left-4 sm:left-auto right-4 max-w-sm rounded-xl border border-amber-500/40 bg-stone-950/95 backdrop-blur-md p-4 shadow-2xl animate-in fade-in duration-200 z-20">
               <div className="flex items-start justify-between gap-2 mb-1.5">
                 <span className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
                   <ShieldCheck className="h-4 w-4" />

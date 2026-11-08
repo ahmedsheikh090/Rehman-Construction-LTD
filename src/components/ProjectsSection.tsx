@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PROJECTS_DATA } from '../data/projectsData';
 import { Project } from '../types';
-import { Layers, MapPin, Building, ChevronRight, X, CheckCircle2 } from 'lucide-react';
+import { MapPin, ChevronRight, X, CheckCircle2 } from 'lucide-react';
 
 export const ProjectsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -25,12 +25,12 @@ export const ProjectsSection: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6 mb-12">
           <div>
             <div className="text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2">
               National Infrastructure Portfolio
             </div>
-            <h2 className="rocky-title text-4xl sm:text-5xl lg:text-6xl font-black text-stone-900 dark:text-stone-100 tracking-tight">
+            <h2 className="rocky-title text-3xl sm:text-5xl xl:text-6xl font-black text-stone-900 dark:text-stone-100 tracking-tight">
               ROADS, UNDERPASSES & MEGA WORKS
             </h2>
             <p className="mt-3 text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-2xl">
@@ -60,7 +60,7 @@ export const ProjectsSection: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
@@ -144,7 +144,7 @@ export const ProjectsSection: React.FC = () => {
       {/* Technical Detail Modal */}
       {activeModalProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="relative w-full max-w-3xl rounded-2xl border border-stone-200 bg-white p-6 shadow-2xl dark:border-stone-800 dark:bg-stone-900 max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-3xl rounded-2xl border border-stone-200 bg-white p-4 sm:p-6 shadow-2xl dark:border-stone-800 dark:bg-stone-900 max-h-[90dvh] overflow-y-auto">
             {/* Close Button */}
             <button
               onClick={() => setActiveModalProject(null)}

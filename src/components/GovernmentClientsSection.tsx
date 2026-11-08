@@ -1,6 +1,6 @@
 import React from 'react';
 import { CLIENTS_DATA } from '../data/clientsData';
-import { ShieldCheck, Award, FileCheck2, Landmark } from 'lucide-react';
+import { ShieldCheck, FileCheck2, Landmark } from 'lucide-react';
 
 // Custom SVG Emblems for Pakistani Authorities & Governments
 const GovernmentEmblemIcon: React.FC<{ id: string; className?: string }> = ({ id, className = 'w-10 h-10' }) => {
@@ -93,7 +93,7 @@ export const GovernmentClientsSection: React.FC = () => {
             <Landmark className="h-4 w-4" />
             <span>State Signoffs, Prequalifications & Accreditations</span>
           </div>
-          <h2 className="rocky-title text-4xl sm:text-5xl lg:text-6xl font-black text-stone-900 dark:text-stone-100 tracking-tight">
+          <h2 className="rocky-title text-3xl sm:text-5xl xl:text-6xl font-black text-stone-900 dark:text-stone-100 tracking-tight">
             GOVERNMENT & PROVINCIAL CLIENTS
           </h2>
           <p className="mt-3 text-base sm:text-lg text-stone-600 dark:text-stone-300">
@@ -102,7 +102,7 @@ export const GovernmentClientsSection: React.FC = () => {
         </div>
 
         {/* Official Client Emblems Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {CLIENTS_DATA.map((client) => (
             <div
               key={client.id}

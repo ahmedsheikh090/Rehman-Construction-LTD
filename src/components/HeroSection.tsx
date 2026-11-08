@@ -1,3 +1,4 @@
+import localImage0 from '../assets/images/cpec_balochistan_n50_1794113940856.jpg';
 import React from 'react';
 import { ArrowRight, Compass, ShieldCheck, Building2, Truck, Droplets } from 'lucide-react';
 
@@ -13,11 +14,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onGoToHeadquarters,
 }) => {
   return (
-    <section id="overview" className="relative min-h-[92vh] w-full overflow-hidden flex flex-col justify-between">
+    <section id="overview" className="relative min-h-[92svh] w-full overflow-hidden flex flex-col justify-between">
       {/* Background Highway Infrastructure Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/cpec_balochistan_n50_1794113940856.jpg"
+          src={localImage0}
           alt="Rehman Construction CPEC Western Route Balochistan Corridor"
           className="h-full w-full object-cover object-center scale-105 transform duration-1000 ease-out"
           referrerPolicy="no-referrer"
@@ -28,9 +29,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pt-16 pb-12 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
         {/* Trust Kicker */}
-        <div className="flex items-center gap-3 text-xs sm:text-sm font-bold tracking-widest text-amber-400 uppercase mb-4">
+        <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-bold tracking-widest text-amber-400 uppercase mb-4">
           <span className="flex h-2 w-2 rounded-full bg-amber-400" />
           <span>Pakistan Engineering Council · Category C-A (No-Limit License)</span>
           <span className="hidden sm:inline">·</span>
@@ -39,9 +40,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Rocky-Style Monumental Typography */}
         <div className="max-w-5xl">
-          <h1 className="rocky-title rocky-emboss text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-none tracking-tight">
+          <h1 className="rocky-title rocky-emboss text-[clamp(2.75rem,8.8vw,8rem)] font-black text-white leading-none tracking-tight">
             REHMAN
-            <span className="block text-amber-500 font-extrabold mt-1 sm:mt-2 text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
+            <span className="block text-amber-500 font-extrabold mt-1 sm:mt-2 text-[clamp(2rem,6.8vw,6rem)]">
               CONSTRUCTION
             </span>
           </h1>
@@ -52,10 +53,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Key Action Buttons */}
-        <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-4">
           <button
             onClick={onExploreProjects}
-            className="flex items-center gap-3 rounded-lg bg-amber-500 px-7 py-4 text-sm font-bold uppercase tracking-wider text-stone-950 shadow-xl transition-all hover:bg-amber-400 hover:scale-[1.02] cursor-pointer"
+            className="flex justify-center items-center gap-3 rounded-lg bg-amber-500 px-7 py-4 text-sm font-bold uppercase tracking-wider text-stone-950 shadow-xl transition-all hover:bg-amber-400 hover:scale-[1.02] cursor-pointer"
           >
             <span>Explore Mega Projects</span>
             <ArrowRight className="h-4 w-4" />
@@ -63,7 +64,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           <button
             onClick={onOpenAi}
-            className="flex items-center gap-3 rounded-lg border-2 border-stone-300/40 bg-stone-900/60 backdrop-blur-md px-6 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-stone-900/90 hover:border-amber-400 cursor-pointer"
+            className="flex justify-center items-center gap-3 rounded-lg border-2 border-stone-300/40 bg-stone-900/60 backdrop-blur-md px-6 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-stone-900/90 hover:border-amber-400 cursor-pointer"
           >
             <Compass className="h-4 w-4 text-amber-400" />
             <span>Consult AI Engineering Desk</span>
@@ -108,13 +109,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Quantitative Rigor Stats Ribbon */}
       <div className="relative z-10 w-full border-t border-white/15 bg-stone-950/90 backdrop-blur-md py-6">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:gap-8">
+          <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-6 xl:grid-cols-4 xl:gap-8">
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400">
                 <Truck className="h-6 w-6" />
               </div>
               <div>
-                <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tabular-nums">400+ KM</div>
+                <div className="font-mono text-xl sm:text-3xl font-extrabold text-white tabular-nums">400+ KM</div>
                 <div className="text-xs font-medium text-stone-400 uppercase tracking-wider">Highways & Expressways</div>
               </div>
             </div>
@@ -124,7 +125,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <Building2 className="h-6 w-6" />
               </div>
               <div>
-                <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tabular-nums">14+ Units</div>
+                <div className="font-mono text-xl sm:text-3xl font-extrabold text-white tabular-nums">14+ Units</div>
                 <div className="text-xs font-medium text-stone-400 uppercase tracking-wider">Flyovers & Underpasses</div>
               </div>
             </div>
@@ -134,7 +135,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <Droplets className="h-6 w-6" />
               </div>
               <div>
-                <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tabular-nums">4.0M Gal</div>
+                <div className="font-mono text-xl sm:text-3xl font-extrabold text-white tabular-nums">4.0M Gal</div>
                 <div className="text-xs font-medium text-stone-400 uppercase tracking-wider">Underground Water Tank</div>
               </div>
             </div>
@@ -144,7 +145,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <ShieldCheck className="h-6 w-6" />
               </div>
               <div>
-                <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tabular-nums">Category C-A</div>
+                <div className="font-mono text-xl sm:text-3xl font-extrabold text-white tabular-nums">Category C-A</div>
                 <div className="text-xs font-medium text-stone-400 uppercase tracking-wider">PEC No-Limit Bidding</div>
               </div>
             </div>

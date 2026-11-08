@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { QUOTES_DATA } from '../data/quotesData';
-import { Quote, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const QuotesSection: React.FC = () => {
   const [activeQuoteIndex, setActiveQuoteIndex] = useState(0);
@@ -26,7 +26,7 @@ export const QuotesSection: React.FC = () => {
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-400 mb-3">
             <span>Foundational Creed & Vision</span>
           </div>
-          <h2 className="rocky-title text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
+          <h2 className="rocky-title text-3xl sm:text-5xl xl:text-6xl font-black tracking-tight text-white">
             THE ARCHITECTURE OF VISION
           </h2>
           <p className="mt-3 text-base sm:text-lg text-stone-400">
@@ -83,7 +83,7 @@ export const QuotesSection: React.FC = () => {
         </div>
 
         {/* 4 Pillars Editorial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           <div className="rounded-xl border border-stone-800 bg-stone-900/50 p-6 flex flex-col justify-between">
             <div>
               <span className="font-mono text-xs text-amber-400 font-bold block mb-2">01. ENDURANCE</span>

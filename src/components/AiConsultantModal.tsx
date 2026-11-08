@@ -1,6 +1,7 @@
+import { getConsultantReply } from '../data/consultant';
 import React, { useState, useRef, useEffect } from 'react';
 import { ChatMessage } from '../types';
-import { X, Send, Bot, User, Sparkles, RefreshCw, HardHat } from 'lucide-react';
+import { X, Send, Bot, User, RefreshCw, HardHat } from 'lucide-react';
 
 interface AiConsultantModalProps {
   isOpen: boolean;
@@ -50,17 +51,19 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
     setLoading(true);
 
     try {
-      const res = await fetch('/api/consultant', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: textToSend }),
-      });
-
-      if (!res.ok) {
-        throw new Error('API server failed');
+      let data = { reply: getConsultantReply(textToSend) };
+      if (import.meta.env.VITE_ENABLE_BACKEND === 'true') {
+        try {
+          const response = await fetch('/api/consultant', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: textToSend }),
+          });
+          if (response.ok) data = await response.json();
+        } catch {
+          // Retain local company answers when the optional backend is unavailable.
+        }
       }
-
-      const data = await res.json();
       const aiReply: ChatMessage = {
         id: String(Date.now() + 1),
         sender: 'ai',
@@ -89,16 +92,16 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative flex flex-col h-[85vh] w-full max-w-2xl rounded-2xl border border-stone-200 bg-white shadow-2xl dark:border-stone-800 dark:bg-stone-900 overflow-hidden">
+      <div className="relative flex flex-col h-[85dvh] max-h-[calc(100dvh-1.5rem)] w-full max-w-2xl rounded-2xl border border-stone-200 bg-white shadow-2xl dark:border-stone-800 dark:bg-stone-900 overflow-hidden">
         
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 px-6 py-4 bg-stone-50 dark:bg-stone-950">
+        <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 px-3 sm:px-6 py-4 bg-stone-50 dark:bg-stone-950">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 font-bold text-stone-950 shadow-xs">
               <HardHat className="h-5 w-5" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <h3 className="rocky-title text-base font-bold text-stone-900 dark:text-stone-100">
                   REHMAN AI ENGINEERING DESK
                 </h3>
@@ -122,7 +125,7 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
         </div>
 
         {/* Chat History */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-stone-100/50 dark:bg-stone-900/40">
+        <div className="min-h-0 flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-stone-100/50 dark:bg-stone-900/40">
           {messages.map((msg) => (
             <div
               key={msg.id}
@@ -202,7 +205,7 @@ export const AiConsultantModal: React.FC<AiConsultantModalProps> = ({ isOpen, on
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={loading}
-            className="flex-1 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-900 px-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:border-amber-500 focus:outline-hidden"
+            className="min-w-0 flex-1 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-900 px-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:border-amber-500 focus:outline-hidden"
           />
           <button
             type="submit"

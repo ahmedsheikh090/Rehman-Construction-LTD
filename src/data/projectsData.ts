@@ -1,3 +1,11 @@
+import localImage0 from '../assets/images/cpec_balochistan_n50_1794113940856.jpg';
+import localImage1 from '../assets/images/d_chowk_islamabad_underpass_1794113941201.jpg';
+import localImage2 from '../assets/images/canal_road_lahore_1794113941923.jpg';
+import localImage3 from '../assets/images/quetta_liaquat_road_1794113976731.jpg';
+import localImage4 from '../assets/images/project_gaddafi_rain_tank_1794112648430.jpg';
+import localImage5 from '../assets/images/stadium_landscape_seating_1794113959984.jpg';
+import localImage6 from '../assets/images/islamabad_convention_road_1794113942379.jpg';
+import localImage7 from '../assets/images/project_tchowk_flyover_1794112647521.jpg';
 import { Project } from '../types';
 
 export const PROJECTS_DATA: Project[] = [
@@ -8,7 +16,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Balochistan (Zhob – Qila Saifullah – Kuchlak – Quetta)',
     client: 'National Highway Authority (NHA) / Federal CPEC Directorate',
     completionYear: 'Completed',
-    image: '/src/assets/images/cpec_balochistan_n50_1794113940856.jpg',
+    image: localImage0,
     highlight: 'Strategic CPEC Mountain Transit Arterial & Heavy Rock Excavation',
     description: 'A vital CPEC Western Route transit corridor through the rugged rocky mountain ranges of northern Balochistan. Rehman Construction executed specialized civil engineering packages, heavy mountain rock blasting, sub-base preparation, and reinforced concrete box underpasses alongside sovereign highway authorities and consortium partners.',
     specs: [
@@ -25,7 +33,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Jinnah Avenue / Constitution Avenue, Islamabad',
     client: 'Capital Development Authority (CDA)',
     completionYear: 'Completed',
-    image: '/src/assets/images/d_chowk_islamabad_underpass_1794113941201.jpg',
+    image: localImage1,
     highlight: 'Capital Signal-Free Vehicular Underpass & Protocol Axis',
     description: 'Specialized civil engineering works, structural retaining walls, and subterranean drainage packages for the capital grade separation on Jinnah Avenue, executed in coordination with lead development authorities.',
     specs: [
@@ -42,7 +50,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Canal Bank Road, Lahore, Punjab',
     client: 'Punjab Communication & Works Department / WASA',
     completionYear: 'Completed',
-    image: '/src/assets/images/canal_road_lahore_1794113941923.jpg',
+    image: localImage2,
     highlight: 'Dualized Canal Highway & Reinforced Embankment Protection',
     description: 'Specialized civil engineering packages and concrete lining revetments executed to protect canal banks and widen the divided roadway, carried out alongside provincial authorities.',
     specs: [
@@ -59,7 +67,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Liaquat Bazaar / Jinnah Road Concourse, Quetta',
     client: 'Government of Balochistan & Municipal Corporation',
     completionYear: 'Completed',
-    image: '/src/assets/images/quetta_liaquat_road_1794113976731.jpg',
+    image: localImage3,
     highlight: 'Commercial Core Modernization & Heavy-Duty Asphalt Roadbed',
     description: 'Civil roadbed packages and heavy-duty asphalt resurfacing in our home province of Balochistan, executing dense bituminous macadam (DBM) and underground storm drainage packages for municipal road networks.',
     specs: [
@@ -93,7 +101,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Gaddafi Stadium Sports Complex, Lahore',
     client: 'Pakistan Cricket Board (PCB) & WASA',
     completionYear: 'Completed',
-    image: '/src/assets/images/project_gaddafi_rain_tank_1794112648430.jpg',
+    image: localImage4,
     highlight: 'Subterranean Civil Concrete Columns & Heavy Hydro Excavation',
     description: 'Specialized civil engineering execution and structural concrete works for the massive underground rainwater reservoir beneath Gaddafi Stadium grounds. Our teams executed heavy subterranean excavation, cast-in-situ reinforced concrete load-bearing pillars, and pump station sumps.',
     specs: [
@@ -110,7 +118,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Capital Sports Enclave, Islamabad',
     client: 'CDA & Sports Directorate',
     completionYear: 'Completed',
-    image: '/src/assets/images/stadium_landscape_seating_1794113959984.jpg',
+    image: localImage5,
     highlight: 'Tiered Concrete Seating Bowl Integrated with Natural Hillside Landscape',
     description: 'Civil concrete execution packages and stepped grandstand tiers contoured into natural hillside earthworks for the sports enclave, executed alongside lead sports and municipal authorities.',
     specs: [
@@ -127,7 +135,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Constitution Avenue / Club Road, Islamabad',
     client: 'Federal Government of Pakistan',
     completionYear: 'Completed',
-    image: '/src/assets/images/islamabad_convention_road_1794113942379.jpg',
+    image: localImage6,
     highlight: 'Diplomatic Protocol Transit Corridors & Ceremonial Plazas',
     description: 'Specialized paving and civil roadway packages for protocol transit boulevards in the Margalla foothills, utilizing high-friction asphalt binder, decorative curbs, and subterranean utility conduits.',
     specs: [
@@ -144,7 +152,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Rawat / Islamabad Confluence (GT Road N-5)',
     client: 'Capital Development Authority (CDA)',
     completionYear: 'Completed',
-    image: '/src/assets/images/project_tchowk_flyover_1794112647521.jpg',
+    image: localImage7,
     highlight: 'Multi-Level Elevated Flyover & Trumpet Grade Separation',
     description: 'Specialized structural sub-contracting packages and civil engineering execution for the elevated interchange at Rawat, including pre-stressed girder placements and approach earthworks in joint venture with lead authorities.',
     specs: [
@@ -161,7 +169,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Commercial Axis Boulevard',
     client: 'Provincial Government Development Authority',
     completionYear: 'Completed',
-    image: '/src/assets/images/d_chowk_islamabad_underpass_1794113941201.jpg',
+    image: localImage1,
     highlight: 'Heavy Duty Urban Spine Roadway & Sub-Ducting',
     description: 'Dedicated to Pakistan’s sporting triumph, this modern road corridor was constructed with deep sub-base lime stabilization, high-friction asphalt surface course, raised concrete walkways, and designated utility conduits to prevent future road cutting.',
     specs: [
@@ -178,7 +186,7 @@ export const PROJECTS_DATA: Project[] = [
     location: 'Central Capital Axis, Islamabad',
     client: 'Capital Development Authority (CDA)',
     completionYear: 'Completed',
-    image: '/src/assets/images/d_chowk_islamabad_underpass_1794113941201.jpg',
+    image: localImage1,
     highlight: 'Signal-Free Urban Arterial Junction & Grade Separation',
     description: 'Comprehensive transformation of one of Islamabad’s central commercial junctions into an uninterrupted signal-free arterial corridor with dedicated slip roads, underpass ramps, pedestrian bridges, and smart LED street lighting networks.',
     specs: [

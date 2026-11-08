@@ -1,35 +1,8 @@
+import { INITIAL_INQUIRIES } from '../data/inquiriesData';
+import localImage0 from '../assets/images/satellite_f10_islamabad_1794115113030.jpg';
 import React, { useState, useEffect } from 'react';
 import QRCode from 'qrcode';
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Navigation,
-  ExternalLink,
-  UserCheck,
-  Shield,
-  Send,
-  CheckCircle2,
-  QrCode,
-  Copy,
-  Check,
-  Download,
-  Share2,
-  Compass,
-  Layers,
-  ZoomIn,
-  ZoomOut,
-  RotateCcw,
-  Sparkles,
-  Smartphone,
-  Eye,
-  Radio,
-  Inbox,
-  MessageCircle,
-  FileText,
-  AlertCircle
-} from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Navigation, ExternalLink, UserCheck, Shield, Send, CheckCircle2, QrCode, Copy, Check, Download, Compass, Layers, ZoomIn, ZoomOut, RotateCcw, Sparkles, Smartphone, Eye, Radio, Inbox, MessageCircle } from 'lucide-react';
 
 interface StoredInquiry {
   id: string;
@@ -62,7 +35,7 @@ export const LeadershipAndOfficeSection: React.FC = () => {
     message: string;
   } | null>(null);
 
-  const [inquiriesList, setInquiriesList] = useState<StoredInquiry[]>([]);
+  const [inquiriesList, setInquiriesList] = useState<StoredInquiry[]>(INITIAL_INQUIRIES);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -75,6 +48,7 @@ export const LeadershipAndOfficeSection: React.FC = () => {
   // Fetch inquiries from server
   const loadInquiries = async () => {
     try {
+      if (import.meta.env.VITE_ENABLE_BACKEND !== 'true') return;
       const res = await fetch('/api/inquiries');
       if (res.ok) {
         const data = await res.json();
@@ -210,10 +184,14 @@ export const LeadershipAndOfficeSection: React.FC = () => {
     );
     const whatsappUrl = `https://wa.me/923117771414?text=${whatsappText}`;
 
-    let refId = `RC-F10-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    let refId = `RC-F10-${new Date().getFullYear()}-${crypto.randomUUID()}`;
 
     try {
       // 3. Post to backend server database
+      if (import.meta.env.VITE_ENABLE_BACKEND !== 'true') {
+        setInquiriesList((previous) => [{ ...formData, id: crypto.randomUUID(), referenceId: refId, timestamp: new Date().toLocaleTimeString('en-PK', { timeZone: 'Asia/Karachi', hour: '2-digit', minute: '2-digit' }) + ' PKT' }, ...previous]);
+        return;
+      }
       const res = await fetch('/api/inquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -278,7 +256,7 @@ export const LeadershipAndOfficeSection: React.FC = () => {
             <Radio className="h-3 w-3 animate-pulse text-amber-500" />
             <span>Corporate Headquarters & Liaison Desk</span>
           </div>
-          <h2 className="rocky-title text-4xl sm:text-5xl lg:text-6xl font-black text-stone-900 dark:text-stone-100 tracking-tight">
+          <h2 className="rocky-title text-3xl sm:text-5xl xl:text-6xl font-black text-stone-900 dark:text-stone-100 tracking-tight">
             LEADERSHIP & SECTOR F-10 ISLAMABAD
           </h2>
           <p className="mt-3 text-base sm:text-lg text-stone-600 dark:text-stone-300">
@@ -385,10 +363,10 @@ export const LeadershipAndOfficeSection: React.FC = () => {
           <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-stone-800/20 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative flex flex-col lg:flex-row items-center gap-10">
+          <div className="relative flex flex-col xl:flex-row items-center gap-10">
             
             {/* Visual Real QR Code Display with Glowing Target Corners */}
-            <div className="flex flex-col items-center text-center lg:w-5/12">
+            <div className="flex w-full flex-col items-center text-center xl:w-5/12">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 font-mono text-xs uppercase tracking-widest mb-3 border border-amber-500/40">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>100% Guaranteed Mobile Scannable</span>
@@ -401,14 +379,14 @@ export const LeadershipAndOfficeSection: React.FC = () => {
               </p>
 
               {/* Dynamic QR Container with Industrial Rocky Styling */}
-              <div className="relative p-4 sm:p-5 rounded-2xl bg-white border-4 border-amber-500/80 shadow-[0_0_40px_rgba(245,158,11,0.25)] flex flex-col items-center">
+              <div className="relative w-full max-w-80 p-4 sm:p-5 rounded-2xl bg-white border-4 border-amber-500/80 shadow-[0_0_40px_rgba(245,158,11,0.25)] flex flex-col items-center">
                 <span className="absolute -top-2 -left-2 w-4 h-4 border-t-4 border-l-4 border-amber-400" />
                 <span className="absolute -top-2 -right-2 w-4 h-4 border-t-4 border-r-4 border-amber-400" />
                 <span className="absolute -bottom-2 -left-2 w-4 h-4 border-b-4 border-l-4 border-amber-400" />
                 <span className="absolute -bottom-2 -right-2 w-4 h-4 border-b-4 border-r-4 border-amber-400" />
 
                 {qrLoading ? (
-                  <div className="w-56 h-56 flex items-center justify-center bg-stone-100 rounded-lg">
+                  <div className="w-full max-w-56 aspect-square flex items-center justify-center bg-stone-100 rounded-lg">
                     <span className="text-xs font-mono text-stone-500 animate-pulse">Generating Scannable Matrix...</span>
                   </div>
                 ) : (
@@ -416,7 +394,7 @@ export const LeadershipAndOfficeSection: React.FC = () => {
                     <img
                       src={qrCodeDataUrl}
                       alt="Rehman Construction Scannable QR Code"
-                      className="w-56 h-56 sm:w-64 sm:h-64 object-contain rounded-lg"
+                      className="w-full max-w-56 sm:max-w-64 aspect-square object-contain rounded-lg"
                     />
                     
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-stone-950 text-amber-400 font-black text-xs font-mono px-2 py-1 rounded shadow-lg border-2 border-amber-400">
@@ -442,7 +420,7 @@ export const LeadershipAndOfficeSection: React.FC = () => {
             </div>
 
             {/* QR Target Selector & Action System */}
-            <div className="lg:w-7/12 flex flex-col justify-between w-full">
+            <div className="xl:w-7/12 flex flex-col justify-between w-full">
               <div>
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400 mb-3">
                   <Eye className="h-4 w-4" />
@@ -589,10 +567,10 @@ export const LeadershipAndOfficeSection: React.FC = () => {
 
         {/* 3. Sector F-10 Office & Working Satellite/Vector Map */}
         <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-10 shadow-lg dark:border-stone-800 dark:bg-stone-950">
-          <div className="flex flex-col lg:flex-row gap-10">
+          <div className="flex flex-col xl:flex-row gap-10">
             
             {/* Office Details */}
-            <div className="w-full lg:w-5/12 flex flex-col justify-between">
+            <div className="w-full xl:w-5/12 flex flex-col justify-between">
               <div>
                 <div className="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2">
                   Liaison & Coordination Office
@@ -696,8 +674,8 @@ export const LeadershipAndOfficeSection: React.FC = () => {
             </div>
 
             {/* Interactive Islamabad F-10 Map & Tender Inquiries Management */}
-            <div className="w-full lg:w-7/12 flex flex-col">
-              <div className="flex items-center justify-between mb-3">
+            <div className="w-full xl:w-7/12 flex flex-col">
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
                   <Navigation className="h-4 w-4 text-amber-500" />
                   <span>Map · Sector F-10 Islamabad ({mapView === 'satellite' ? 'Satellite Aerial View' : 'Vector Plan'})</span>
@@ -748,7 +726,7 @@ export const LeadershipAndOfficeSection: React.FC = () => {
               </div>
 
               {/* Map Canvas Frame */}
-              <div className="relative aspect-4/3 w-full rounded-xl overflow-hidden border border-stone-300 dark:border-stone-800 bg-stone-950 shadow-inner group">
+              <div className="relative aspect-4/3 min-h-80 w-full rounded-xl overflow-hidden border border-stone-300 dark:border-stone-800 bg-stone-950 shadow-inner group">
                 <div
                   className="w-full h-full transition-transform duration-300 flex items-center justify-center relative select-none overflow-hidden"
                   style={{ transform: `scale(${mapZoom})` }}
@@ -756,7 +734,7 @@ export const LeadershipAndOfficeSection: React.FC = () => {
                   {mapView === 'satellite' ? (
                     <div className="absolute inset-0 bg-stone-950">
                       <img
-                        src="/src/assets/images/satellite_f10_islamabad_1794115113030.jpg"
+                        src={localImage0}
                         alt="Islamabad Sector F-10 Satellite Aerial View"
                         className="h-full w-full object-cover"
                       />
@@ -773,7 +751,7 @@ export const LeadershipAndOfficeSection: React.FC = () => {
                       <div className="absolute top-4 left-6 bg-stone-950/80 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-mono text-stone-300 border border-stone-800">
                         Sector F-10 Islamabad
                       </div>
-                      <div className="absolute top-4 right-6 bg-stone-950/80 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-mono text-stone-300 border border-stone-800">
+                      <div className="absolute top-12 sm:top-4 right-3 sm:right-6 bg-stone-950/80 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-mono text-stone-300 border border-stone-800">
                         Margalla Hills Foothills
                       </div>
                     </div>
@@ -831,7 +809,7 @@ export const LeadershipAndOfficeSection: React.FC = () => {
                   )}
                 </div>
 
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                <div className="absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
                   <div className="pointer-events-auto bg-stone-950/85 backdrop-blur-md px-3 py-1.5 rounded-md border border-stone-800 text-[11px] text-stone-300 font-mono flex items-center gap-1.5">
                     <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
                     <span>33.6973° N, 73.0118° E · F-10 Islamabad</span>

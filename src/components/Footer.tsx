@@ -1,5 +1,5 @@
 import React from 'react';
-import { HardHat, ShieldCheck, MapPin } from 'lucide-react';
+import { HardHat, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (

@@ -26,3 +26,20 @@ body {
 .rocky-emboss {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 10px 25px rgba(0, 0, 0, 0.6);
 }
+
+/* Responsive sizing shared by cards, nested grids, and contact details. */
+#root { min-width: 0; }
+:where(.flex, .grid) > * { min-width: 0; }
+:where(main, footer, [role="dialog"]) { overflow-wrap: anywhere; }
+:where(img, video, canvas) { max-width: 100%; }
+:where(button, a) > svg { flex-shrink: 0; }
+:where(section[id], main > div[id]) { scroll-margin-top: 9rem; }
+input, textarea, select { max-width: 100%; }
+@media (max-width: 639px) {
+  :where(main section) { padding-top: 3rem; padding-bottom: 3rem; }
+  #overview { padding-top: 0; padding-bottom: 0; }
+  :where(main .rounded-2xl.p-6, main .rounded-2xl.p-8) { padding: 1rem; }
+  :where(main .flex.items-center.justify-between) { flex-wrap: wrap; gap: 0.75rem; }
+  :where(input, textarea, select) { font-size: 16px; }
+  :where(section[id], main > div[id]) { scroll-margin-top: 6rem; }
+}
